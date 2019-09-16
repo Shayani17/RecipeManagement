@@ -1,14 +1,14 @@
 <div class="card">
-    <img src="assets/img/food1.gif" alt="Avatar" style="width:50% ;height:50%">
+    <img src="assets/img/food1.gif" alt="Avatar" style="width:50% ;height:30%">
     <div class="containers">
-      <h4><b>{{recipeDetail.recipe_name}}</b></h4> 
-      <p>Created Date: {{recipeDetail.created_date}}</p>
-      <p>Number of Servings : {{recipeDetail.recipe_servering}}</p>
-      <h5><b>Ingredients</b></h5>
+      <h3 class="heading"><b>{{recipeDetail.recipe_name}}</b></h3> 
+      <p><b>Created Date : </b> {{recipeDetail.created_date}}</p>
+      <p><b>Number of Servings : </b> {{recipeDetail.recipe_servering}}</p>
+      <div><b>Ingredients</b>
         <ul  *ngFor="let recipeList of recipeDetail.recipe_ingredient">
           <li> {{recipeList}}</li>
         </ul>
-      <h5><b>Instructions:</b></h5>
-      <p>{{recipeDetail.recipe_instruction}}</p>
+      </div>
+      <p><b>Instructions : </b>{{recipeDetail.recipe_instruction}}</p>
     </div>
   </div>

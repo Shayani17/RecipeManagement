@@ -12,48 +12,43 @@ export class HomeComponent implements OnInit {
 
   private recipeDetailList: RecipeDetail[];
   private deleteValue: string;
-  public delSuccessMsg: boolean = false;
-  public delMsg: string = "";
+  public actionmsg: string;
+  public actionmsgFlag: boolean;
 
   constructor(private _data: DataService,
-              private _router: Router ) { }
-
+    private _router: Router) { }
 
   ngOnInit() {
-   this._data.getRecipes().subscribe(data=> {
-     console.log("we are in home ts:",data.data)
-     this.recipeDetailList = data.data;
-   });
+    this._data.getRecipes().subscribe(data => {
+      this.recipeDetailList = data.data;
+    });
+    this.actionmsg = this._data.responseMsg;
+    this.actionmsgFlag = this._data.responseMsgFlag;
   }
- 
-  viewDetails(recipe: any){
-    console.log("recipe"+recipe.recipe_id);
+
+  viewDetails(recipe: any) {
     this._data.setRecipe(recipe);
+    this._data.setResponseMessage("");
     this._router.navigate(['/detail']);
   }
 
-  updateDetails(recipe: any){
-    console.log("update");
+  updateDetails(recipe: RecipeDetail) {
     this._data.setRecipe(recipe);
     this._router.navigate(['/edit']);
   }
 
-  deleteDetails(recipe: RecipeDetail){
-    console.log('Delete id:',recipe.recipe_id);
+  deleteDetails(recipe: RecipeDetail) {
     this._data.deleteRecipeDetails(recipe.recipe_id)
-    .subscribe(data=>
-    {//result
-      this.deleteValue = data;
-      if(this.deleteValue === "Delete succesfully"){
-        this.delSuccessMsg =true;
-        this.delMsg= this.deleteValue;
-        this._router.navigate(['/home'])
-      }
-    })
-    console.log("delete");
+      .subscribe(data => {
+        this.deleteValue = data.data;
+        if (this.deleteValue === "Record Deleted") {
+          this._data.setResponseMessage("Record Deleted Successfully");
+          this.ngOnInit();
+        }
+      })
   }
 
-  addDetail(){
+  addDetail() {
     this._router.navigate(['/add']);
   }
 }

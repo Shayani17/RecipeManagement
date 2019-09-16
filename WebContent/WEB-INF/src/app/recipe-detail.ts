@@ -1,10 +1,10 @@
 export class RecipeDetail {
 
-    recipe_id: string;
-    recipe_name: string;
-    recipe_category: string;
-    recipe_servering: string;
-    recipe_ingredient: any[];
-    recipe_instruction: string;
-    created_date: string;
+   public recipe_id: string;
+   public recipe_name: string;
+   public recipe_category: string;
+   public recipe_servering: string;
+   public recipe_ingredient: any[];
+   public recipe_instruction: string;
+   public created_date: string;
 }

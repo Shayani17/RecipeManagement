@@ -1,48 +1,46 @@
-<h1>Add Recipe</h1>
+<h1 class="heading">Add Recipe</h1>
 
 <form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
 
-    <h5 *ngIf="success">{{response}}</h5>
+  <label>
+    Recipe Name:
+    <input type="text" formControlName="recipename">
+    <div *ngIf="submitted && messageForm.controls.recipename.errors" class="error">
+      <div *ngIf="messageForm.controls.recipename.errors.required">Recipe name is required</div>
+    </div>
+  </label>
 
-    <label>
-      Recipe Name:
-      <input type="text" formControlName="recipename" >
-      <div *ngIf="submitted && messageForm.controls.recipename.errors" class="error">
-        <div *ngIf="messageForm.controls.recipename.errors.required">Recipe name is required</div>
-      </div>
-    </label>
-  
-    <label>
-      Number of serving:<small>(in numbers only)</small>
-      <input type="text" formControlName="servings">
-      <div *ngIf="submitted && messageForm.controls.servings.errors" class="error">
-        <div *ngIf="messageForm.controls.servings.errors.required">Number of servings is required</div>
-      </div>
-    </label>
+  <label>
+    Number of serving:<small>(in numbers only)</small>
+    <input type="text" formControlName="servings">
+    <div *ngIf="submitted && messageForm.controls.servings.errors" class="error">
+      <div *ngIf="messageForm.controls.servings.errors.required">Number of servings is required</div>
+    </div>
+  </label>
 
-    <label>
-        Recipe Category: <small>(Veg/Non-Veg)</small>
-        <input type="text" formControlName="recipeCategory">
-        <div *ngIf="submitted && messageForm.controls.recipeCategory.errors" class="error">
-          <div *ngIf="messageForm.controls.recipeCategory.errors.required">Recipe Category is required</div>
-        </div>
-      </label>
+  <label>
+    Recipe Category: <small>(Veg/Non-Veg)</small>
+    <input type="text" formControlName="recipeCategory">
+    <div *ngIf="submitted && messageForm.controls.recipeCategory.errors" class="error">
+      <div *ngIf="messageForm.controls.recipeCategory.errors.required">Recipe Category is required</div>
+    </div>
+  </label>
 
-    <label>
-      Ingredients:<small>(Kindly specify by comma seperation only)</small>
-      <input type="text" formControlName="ingredients" >
-      <div *ngIf="submitted && messageForm.controls.ingredients.errors" class="error">
-        <div *ngIf="messageForm.controls.ingredients.errors.required">Kindly add ingredients</div>
-      </div>
-    </label>
+  <label>
+    Ingredients:<small>(Kindly specify by comma seperation only)</small>
+    <input type="text" formControlName="ingredients">
+    <div *ngIf="submitted && messageForm.controls.ingredients.errors" class="error">
+      <div *ngIf="messageForm.controls.ingredients.errors.required">Kindly add ingredients</div>
+    </div>
+  </label>
 
-    <label>
-      Instructions:
-      <input type="text" formControlName="instruction">
-      <div *ngIf="submitted && messageForm.controls.instruction.errors" class="error">
-        <div *ngIf="messageForm.controls.instruction.errors.required">Kindly add Instructions</div>
-      </div>
-    </label>
-    <input type="submit" value="Save Recipe" class="cta">
-  
-  </form>
+  <label>
+    Instructions:
+    <input type="text" formControlName="instruction">
+    <div *ngIf="submitted && messageForm.controls.instruction.errors" class="error">
+      <div *ngIf="messageForm.controls.instruction.errors.required">Kindly add Instructions</div>
+    </div>
+  </label>
+  <input type="submit" value="Save Recipe" class="cta">
+
+</form>

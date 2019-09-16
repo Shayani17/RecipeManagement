@@ -6,11 +6,11 @@ import { AddDetailsComponent } from './add-details/add-details.component';
 import { UpdateDetailsComponent } from './update-details/update-details.component';
 
 const routes: Routes = [
-  {path:'', component: HomeComponent},
-  {path:'detail', component: RecipeDetailComponent},
-  {path:'add', component:AddDetailsComponent},
-  {path:'edit', component:UpdateDetailsComponent},
-  {path:'**', component: HomeComponent}
+  { path: '', component: HomeComponent },
+  { path: 'detail', component: RecipeDetailComponent },
+  { path: 'add', component: AddDetailsComponent },
+  { path: 'edit', component: UpdateDetailsComponent },
+  { path: '**', component: HomeComponent }
 ];
 
 @NgModule({

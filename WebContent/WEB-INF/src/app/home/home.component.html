@@ -1,17 +1,25 @@
-<div class="">
-<div class= "column"><h1>Recipe</h1></div>
-<div class= "right"><h1><button (click)="addDetail()">Add</button></h1></div>
+<div>
+   <div class="column">
+      <h1>Recipe</h1>
+   </div>
+   <div class="right">
+      <h1><button (click)="addDetail()">Add</button></h1>
+   </div>
 </div>
-<h5 *ngIf="delSuccessMsg">{{delMsg}}</h5>
+<h5 *ngIf="actionmsgFlag">{{actionmsg}}</h5>
 <ul *ngIf="recipeDetailList">
-  <li  *ngFor="let recipe of recipeDetailList">
-    <div>
-        <img src="assets/img/food.jpeg" >
-     </div>
-     <div>
-        <div class="column ">{{ recipe.recipe_name }} </div>
-        <div class="column " [ngStyle]="{'color': (recipe.recipe_category === 'Veg') ? 'green' : (recipe.recipe_category === 'Non-Veg') ? 'red' : ''}">{{ recipe.recipe_category }}</div>
-        <div class="right"><button (click)="viewDetails(recipe)">View</button> <button (click)="updateDetails(recipe)">Update</button><button (click)="deleteDetails(recipe)">Delete</button></div>
-     </div>
-  </li>
+   <li *ngFor="let recipe of recipeDetailList">
+      <div>
+         <img src="assets/img/food.jpeg">
+      </div>
+      <div>
+         <div class="column ">{{ recipe.recipe_name }} </div>
+         <div class="column "
+            [ngStyle]="{'color': (recipe.recipe_category === 'Veg') ? 'green' : (recipe.recipe_category === 'Non-Veg') ? 'red' : ''}">
+            {{ recipe.recipe_category }}</div>
+         <div class="right"><button (click)="viewDetails(recipe)">View</button> <button
+               (click)="updateDetails(recipe)">Update</button><button (click)="deleteDetails(recipe)">Delete</button>
+         </div>
+      </div>
+   </li>
 </ul>

@@ -7,7 +7,10 @@ import com.tcs.entity.RecipeManagerEntity;
 public interface RecipeManagerDaoInterface {
 
 	public List<RecipeManagerEntity> fetch();
+
 	public int addDetail(RecipeManagerEntity list);
-	public List<RecipeManagerEntity> updateDetail();
+
+	public int updateDetail(RecipeManagerEntity list);
+
 	public int delete(int id);
 }
